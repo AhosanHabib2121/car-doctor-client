@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import image from '../../assets/images/login/login.svg'
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
@@ -8,6 +8,8 @@ const Login = () => {
     const { loginAccount } = useContext(AuthContext);
     const [passShowHide, setPassShowHide] = useState(false)
     const navigate = useNavigate()
+    const location = useLocation()
+
 
     const handleLogin = e => {
         e.preventDefault();
@@ -20,7 +22,7 @@ const Login = () => {
             .then(result => {
                 alert('Login successfully!')
                 form.reset();
-                navigate('/')
+                navigate(location?.state ? location?.state : '/');
             })
             .catch(error => console.log(error.message))
     }

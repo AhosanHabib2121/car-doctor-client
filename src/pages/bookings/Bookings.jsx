@@ -7,6 +7,7 @@ import BookingRow from "./BookingRow";
 const Bookings = () => {
     const { user } = useContext(AuthContext);
     const [bookings, setBookings] = useState([]);
+
     const url = `http://127.0.0.1:5000/booking?email=${user?.email}`;
 
     useEffect(() => {
@@ -32,6 +33,25 @@ const Bookings = () => {
       }
     };
 
+    const handleBookingConfirm = id => { 
+        fetch(`http://127.0.0.1:5000/booking/${id}`, {
+          method: "PATCH",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ status: "confirm" }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.modifiedCount === 1) {
+              const remaining = bookings.filter((booking) => booking._id !== id);
+              const update = bookings.find((booking) => booking._id == id);
+              update.status = "confirm";
+              const newBookings = [update, ...remaining];
+              setBookings(newBookings);
+            }
+          });
+    }
+
     return (
       <div className="overflow-x-auto my-8">
         <table className="table">
@@ -52,6 +72,7 @@ const Bookings = () => {
                 key={booking._id}
                 booking={booking}
                 handleDelete={handleDelete}
+                handleBookingConfirm={handleBookingConfirm}
               ></BookingRow>
             ))}
           </tbody>
