@@ -5,9 +5,9 @@ const Services = () => {
     const [servicesData, setServicesData] = useState([])   
     
     useEffect(() => {
-        fetch('/services.json')
-        .then(res => res.json())
-        .then(data => setServicesData(data))
+        fetch("http://127.0.0.1:5000/services")
+          .then((res) => res.json())
+          .then((data) => setServicesData(data));
     },[])
 
     return (

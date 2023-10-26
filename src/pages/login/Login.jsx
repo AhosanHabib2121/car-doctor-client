@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import image from '../../assets/images/login/login.svg'
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
@@ -7,6 +7,7 @@ import { BiSolidShow, BiSolidHide } from 'react-icons/bi';
 const Login = () => {
     const { loginAccount } = useContext(AuthContext);
     const [passShowHide, setPassShowHide] = useState(false)
+    const navigate = useNavigate()
 
     const handleLogin = e => {
         e.preventDefault();
@@ -17,7 +18,9 @@ const Login = () => {
         // login account
         loginAccount(email, password)
             .then(result => {
-                console.log(result.user);
+                alert('Login successfully!')
+                form.reset();
+                navigate('/')
             })
             .catch(error => console.log(error.message))
     }

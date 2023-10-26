@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import image from '../../assets/images/login/login.svg'
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
@@ -8,6 +8,7 @@ import { BiSolidShow, BiSolidHide } from 'react-icons/bi';
 const SignUp = () => {
     const { createAccount, profileUpdate } = useContext(AuthContext);
     const [passShowHide, setPassShowHide] = useState(false)
+    const navigate = useNavigate();
 
     const handleSignUp = e => {
         e.preventDefault();
@@ -22,8 +23,10 @@ const SignUp = () => {
                 // updateProfile
                 profileUpdate(name)
                     .then(() => {
-                        console.log(result.user)
+                        // console.log(result.user)
+                        alert("Sign up successfully!");
                         form.reset()
+                        navigate("/");
                     })
             })
             .catch(error => console.log(error.message))
