@@ -25,17 +25,17 @@ const BookServices = () => {
         price,
         message,
     };
-       fetch("http://127.0.0.1:5000/booking", {
-           method: 'POST',
-           headers: { 'content-type': 'application/json' },
-           body:JSON.stringify(order)
-        })
-          .then((res) => res.json())
-           .then((data) => {
-              if(data.insertedId){
-                alert('Booking successfully!')
-              }
-          });
+       fetch("http://localhost:5000/booking", {
+         method: "POST",
+         headers: { "content-type": "application/json" },
+         body: JSON.stringify(order),
+       })
+         .then((res) => res.json())
+         .then((data) => {
+           if (data.insertedId) {
+             alert("Booking successfully!");
+           }
+         });
 
    };
 
