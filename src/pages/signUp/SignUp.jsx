@@ -1,12 +1,12 @@
 import { Link, useNavigate } from 'react-router-dom';
 import image from '../../assets/images/login/login.svg'
-import { useContext, useState } from 'react';
-import { AuthContext } from '../../providers/AuthProvider';
+import {useState } from 'react';
 import { BiSolidShow, BiSolidHide } from 'react-icons/bi';
+import useAuth from '../../customHooks/useAuth';
 
 
 const SignUp = () => {
-    const { createAccount, profileUpdate } = useContext(AuthContext);
+    const { createAccount, profileUpdate} = useAuth()
     const [passShowHide, setPassShowHide] = useState(false)
     const navigate = useNavigate();
 
