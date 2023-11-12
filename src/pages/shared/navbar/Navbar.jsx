@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
 import logo from '../../../assets/logo.svg'
 import useAuth from "../../../customHooks/useAuth";
+import { useTheme } from "../../../customHooks/useTheme";
+import { MdOutlineDarkMode } from 'react-icons/md';
+import { CiLight } from 'react-icons/ci';
 
 const Navbar = () => {
-    const {user, logOut} = useAuth()
+    const { user, logOut } = useAuth()
+    const {changeTheme, mode} = useTheme()
     
     const handleSignOut = () => {
       logOut()
@@ -20,9 +24,8 @@ const Navbar = () => {
             </>
             :<li><Link to='/login' >Login</Link></li>
         }
-        
 
-</>
+    </>
     
 
     return (
@@ -46,6 +49,13 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
+                <div className=" mr-4">
+                    <div onClick={changeTheme} className=" mr-4">
+                        {mode == 'light' ?
+                            <MdOutlineDarkMode className=" text-3xl " />
+                            : <CiLight className="text-3xl" />}
+                    </div>
+                </div>
                 <button className="btn btn-outline btn-warning normal-case">Appointment</button>
             </div>
         </div>

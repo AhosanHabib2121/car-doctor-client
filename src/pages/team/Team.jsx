@@ -14,7 +14,7 @@ const Team = () => {
             {/* head area */}
             <div className=" text-center">
                 <h3 className=" text-2xl font-bold text-[#FF3811]">Team</h3>
-                <h2 className=" text-4xl font-bold text-[#151515]">Meet Our Team</h2>
+                <h2 className=" text-4xl font-bold text-[#151515] dark:text-[#fff]">Meet Our Team</h2>
                 <p className=" text-[#737373] text-base font-normal mt-4 w-1/2 mx-auto">the the majority have suffered alteration in some form, by injected humour, or randomised words which do not look even slightly believable. </p>
             </div>
 
@@ -44,9 +44,9 @@ const Team = () => {
                         <img src={teamPhoto2} alt="not found" className="h-52 rounded-lg" />
                     </figure>
                     <div className="card-body p-0 pb-6 text-center">
-                        <h2 className=" text-[#444] text-2xl font-bold ">Car Engine Plug</h2>
+                        <h2 className=" text-[#444] text-2xl font-bold dark:text-[#fff]">Car Engine Plug</h2>
 
-                        <h3 className=" text-[#737373] text-xl font-semibold">Engine Expert</h3>
+                        <h3 className=" text-[#737373] text-xl font-semibold dark:text-[#fff]">Engine Expert</h3>
                         
                         <div className=' flex justify-center gap-3 text-4xl my-1'>
                             <BiLogoFacebookCircle className=' text-sky-900'/>

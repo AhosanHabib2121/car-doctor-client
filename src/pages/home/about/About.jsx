@@ -14,13 +14,13 @@ const About = () => {
                 {/* content area */}
                 <div className='lg:w-1/2'>
                     <h1 className="text-2xl font-bold text-[#FF3811] ">About Us</h1>
-                        <h2 className="py-4 text-[#151515] text-5xl font-bold">We are qualified & of experience in this field
+                    <h2 className="py-4 text-[#151515] text-5xl font-bold dark:text-[#fff]">We are qualified & of experience in this field
                     </h2>
                     <div className=' space-y-2'>
-                    <p className=' text-[#737373]'>
+                        <p className=' text-[#737373] dark:text-[#fff]'>
                         There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which do not look even slightly believable. 
                     </p>
-                    <p className=' text-[#737373]'>
+                        <p className=' text-[#737373] dark:text-[#fff]'>
                         the majority have suffered alteration in some form, by injected humour, or randomised words which do not look even slightly believable.  
                     </p>
                     </div>

@@ -17,7 +17,8 @@ const Home = () => {
             <OurProduct />
             <Team />
             <Features />
-            <Testimonial/>
+            <Testimonial />
+             
         </div>
         
     );
